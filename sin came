@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Personal | Andrea Mora Blas</title>
+    <!-- Tailwind CSS para el diseño -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuración de colores terrosos -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        tierra: {
+                            50: '#fbfaf9',
+                            100: '#f4efe8',
+                            200: '#e8dcd0',
+                            300: '#d7c2ae',
+                            400: '#c1a187',
+                            500: '#b08768',
+                            600: '#a37458',
+                            700: '#885e48',
+                            800: '#714e3e',
+                            900: '#5c4135',
+                        },
+                        acento: {
+                            50: '#f4f6f4',
+                            100: '#e4ebe4',
+                            800: '#3a4f3a',
+                            900: '#314231',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Fuente de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <!-- Iconos -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js para el gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-serif { font-family: 'Merriweather', serif; }
+    </style>
+</head>
+<body class="bg-tierra-50 text-tierra-900 antialiased selection:bg-tierra-200 selection:text-tierra-900">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md border-b border-tierra-200 z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-serif font-bold text-xl tracking-tight text-tierra-800">AMB.</span>
+                </div>
+                <div class="hidden lg:flex space-x-6">
+                    <a href="#inicio" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Inicio</a>
+                    <a href="#trayectoria" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Trayectoria</a>
+                    <a href="#dafo" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">DAFO/CAME</a>
+                    <a href="#orientacion" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Tests</a>
+                    <a href="#valores" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Valores</a>
+                    <a href="#entorno" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Entorno</a>
+                    <a href="#reflexion" class="text-tierra-600 hover:text-tierra-900 transition-colors text-sm font-medium">Reflexión</a>
+                </div>
+                <!-- Menú móvil -->
+                <div class="lg:hidden flex items-center">
+                    <button class="text-tierra-600 hover:text-tierra-900" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <i data-lucide="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú móvil desplegable -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-tierra-200 max-h-screen overflow-y-auto">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#inicio" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Inicio</a>
+                <a href="#trayectoria" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Trayectoria</a>
+                <a href="#dafo" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">DAFO / CAME</a>
+                <a href="#orientacion" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Tests de Orientación</a>
+                <a href="#valores" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Gráfico de Valores</a>
+                <a href="#entorno" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Com em veuen els altres?</a>
+                <a href="#reflexion" class="block px-3 py-2 text-base font-medium text-tierra-700 hover:text-tierra-900 hover:bg-tierra-50">Reflexió ON ESTIC</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio -->
+    <section id="inicio" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2 space-y-6">
+                <div class="inline-flex items-center px-3 py-1 rounded-full bg-tierra-100 text-tierra-700 text-sm font-medium mb-4">
+                    <i data-lucide="book-open" class="w-4 h-4 mr-2"></i> CS DC1 2025-2026
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl text-tierra-900 leading-tight">
+                    Hola, soy <br><span class="text-tierra-600 italic">Andrea Mora Blas</span>
+                </h1>
+                <p class="text-lg text-tierra-700 leading-relaxed">
+                    Bienvenidos a mi portafolio web personal. En este espacio he recopilado de forma íntegra todos los documentos, reflexiones y actividades de orientación que he realizado para analizar mi perfil profesional, mis intereses y mi evolución desde el mundo del arte hasta mi vocación en la cocina.
+                </p>
+                <div class="pt-4 flex flex-wrap gap-4">
+                    <a href="#trayectoria" class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-tierra-700 hover:bg-tierra-800 transition-colors shadow-sm">
+                        Ver documentos
+                        <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="aspect-square bg-tierra-200 rounded-2xl overflow-hidden relative shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-tierra-300 to-tierra-100 opacity-80"></div>
+                    <div class="absolute inset-0 flex items-center justify-center text-tierra-500">
+                        <i data-lucide="pen-tool" class="w-32 h-32 opacity-20"></i>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80" alt="Cocina creativa" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-50">
+                </div>
+                <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-acento-100 rounded-full -z-10"></div>
+                <div class="absolute -top-6 -right-6 w-32 h-32 bg-tierra-100 rounded-full -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 1: Trayectoria -->
+    <section id="trayectoria" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Pregunta 1: Evolució Professional</h2>
+                <div class="w-24 h-1 bg-tierra-300 rounded-full"></div>
+            </div>
+
+            <div class="bg-tierra-50 p-8 rounded-2xl border border-tierra-100 shadow-sm">
+                <h3 class="text-xl font-medium text-tierra-900 mb-6 italic border-l-4 border-tierra-400 pl-4">
+                    Què volies ser de petit i perquè? Ha canviat la opinió amb el pas dels anys? Perquè? T'ha influït l'entorn a l'hora de canviar l'opinió o reforçar aquesta idea?
+                </h3>
+                
+                <div class="space-y-6 text-tierra-800 leading-relaxed">
+                    <p>De petita volia ser artista, música o treballar d'alguna cosa creativa, de creació manual. Sí, la meva opinió ha canviat amb el temps, més endavant vaig rumiar sobre aquesta professió, la música la vaig descartar, no m'acabava de convèncer fora de les classes de música un cop vaig provar a aprendre alguns instruments. Al finalitzar l'ESO vaig haver de decidir quina rama volia triar per dictar d'alguna manera la meva futura professió, estaba entre fer el científic o l'artístic, sempre m'han agradat les matemàtiques i la ciència, la física, la natura, a més eren matèries que se'm donaven bé. Però vaig triar la rama artística, sentia que la gent relacionada amb l'art, la professió i la creació encaixaba millor amb mi que no pas un treball científic o de laboratori.</p>
+                    
+                    <p>Un cop finalitzat el batxillerat d'arts la veritat és que vaig acabar amb ganes de continuar formant-me i aprenent l'art, volia realitzar coses més ambicioses i pràctiques, experimentar altres materials i formes d'expressió, millorar la tècnica i enfortir la meva creativitat. Durant el CS d'arts aplicades al mur que vaig realitzar durant 2 anys vaig aprendre i sobretot practicar molt art, va ser una experiència enriquidora però em va fer veure el mon de l'art actual, el problema amb les galeries, falta de diners, discursos una mica dubtosos sobre l'art i visions que no encaixaven amb mi, a més de l'estrès de creació i falta de motivació pròpia a pintar molts cops. Un cop terminat el CS vaig decidir esperar un any més per veure si volia o no anar-me a viure i estudiar la carrera de belles art a Barcelona i estalviar per poder fer-ho.</p>
+                    
+                    <p>Durant aquest any vaig tenir l'oportunitat d'anar-me a viure i treballar a Lleida com a ajudant de cuina a un hotel que gaudia d'un sol repsol (o estava a la guia no se). Durant aquesta estança i experiència vaig adonar-me'n que l'ofici era molt exigent però que gaudia molt de la dinàmica que m'oferia, la creació de plats amb el chef, el treball manual, el ritme constant i ràpid, la tensió, la relació amb la gent, tracte amb companys, cambrers, etc. Un cop vaig tornar a Reus se'm va aparèixer l'oportunitat un altre cop de treballar on estic ara, a la Boella, com a ajudant de cuina en la part de restaurant, aquí he gaudit molt un altre cop de l'ofici i he entrat a estudiar cuina per poder desarrollar-me i aprendre més técniques teoría i pràctica de cuina.</p>
+                    
+                    <p>El meu entorn m'ha animat amb l'ofici de cuina però de pintora era una mica més complicat, la meva àvia al principi em deia que jo tenia potencial per poder fer una carrera o un batxillerat de ciències, que deixés l'art com un hobby, després em va recolzar molt més endavant però és cert que ser artista era pitjor vist.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 2: Análisis DAFO y CAME -->
+    <section id="dafo" class="py-20 bg-tierra-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Análisis DAFO y CAME</h2>
+                <div class="w-24 h-1 bg-tierra-300 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Debilidades / Corregir -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-tierra-200">
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="trending-down" class="w-6 h-6 text-[#c9a68c] mr-3"></i>
+                        <h3 class="text-xl font-bold text-tierra-900 uppercase">Debilidades <span class="text-sm text-tierra-500 ml-2 font-normal">/ Corregir</span></h3>
+                    </div>
+                    <div class="mb-6 space-y-3 text-tierra-800">
+                        <p>• Tengo miedo al cambio y a salirme de mi zona de confort, alejarme de lo que conozco y aventurarme. (desplazamiento)</p>
+                        <p>• A veces peco de sobrepensar las cosas o preguntar demasiado, puede llevar a conflictos.</p>
+                        <p class="text-sm italic text-tierra-600 mt-2">Debería animarme más a arriesgarme o realizar cosas puntuales aunque me conlleven un esfuerzo o miedo.</p>
+                    </div>
+                    <div class="bg-[#fcfaf8] p-5 rounded-xl border border-tierra-100">
+                        <h4 class="font-bold text-tierra-800 mb-3 text-sm">CAME</h4>
+                        <ul class="space-y-2 text-tierra-700">
+                            <li>• Establecer metas pequeñas y progresivas que impliquen salir de la rutina.</li>
+                            <li>• Practicar la toma de decisiones con tiempos limitados.</li>
+                            <li>• Aprender técnicas de comunicación asertiva para expresar dudas sin generar conflictos.</li>
+                            <li>• Crear un "plan de retos personales" mensuales que impliquen riesgo controlado.</li>
+                            <li>• Recompensar los logros por pequeños que sean.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Amenazas / Afrontar -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-tierra-200">
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-[#8c6b5d] mr-3"></i>
+                        <h3 class="text-xl font-bold text-tierra-900 uppercase">Amenazas <span class="text-sm text-tierra-500 ml-2 font-normal">/ Afrontar</span></h3>
+                    </div>
+                    <div class="mb-6 space-y-3 text-tierra-800">
+                        <p>• Capital disponible limitado</p>
+                        <p>• Difícil disponibilidad de vivienda en caso de mudanza por estudios/trabajo.</p>
+                        <p>• Falta de formaciones accesibles en la zona</p>
+                    </div>
+                    <div class="bg-[#fcfaf8] p-5 rounded-xl border border-tierra-100 mt-auto">
+                        <h4 class="font-bold text-tierra-800 mb-3 text-sm">CAME</h4>
+                        <ul class="space-y-2 text-tierra-700">
+                            <li>• Investigar ayudas, becas o financiación flexible.</li>
+                            <li>• Planificar gastos y priorizar inversiones formativas o laborales con mayor retorno.</li>
+                            <li>• Explorar opciones de alojamiento compartido, residencias universitarias o ayudas al alquiler.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Fortalezas / Mantener -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-tierra-200">
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="award" class="w-6 h-6 text-[#5d7a6b] mr-3"></i>
+                        <h3 class="text-xl font-bold text-tierra-900 uppercase">Fortalezas <span class="text-sm text-tierra-500 ml-2 font-normal">/ Mantener</span></h3>
+                    </div>
+                    <div class="mb-6 space-y-3 text-tierra-800">
+                        <p>• Soy una persona dedicada y responsable, me gusta exigirme y cumplir o sobrepasar expectativas.</p>
+                        <p>• Aprendo rápido y soy resolutiva.</p>
+                        <p>• Me adapto con facilidad según las condiciones.</p>
+                        <p>• Ambición académica.</p>
+                    </div>
+                    <div class="bg-[#fcfaf8] p-5 rounded-xl border border-tierra-100">
+                        <h4 class="font-bold text-tierra-800 mb-3 text-sm">CAME</h4>
+                        <ul class="space-y-2 text-tierra-700">
+                            <li>• Mantener una rutina de autoevaluación para no perder el enfoque.</li>
+                            <li>• Seguir formándose en áreas de interés.</li>
+                            <li>• Investigar nuevas opciones formativas.</li>
+                            <li>• Mantener contacto con profesores o tutores que puedan orientar.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Oportunidades / Explotar -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-tierra-200">
+                    <div class="flex items-center mb-6">
+                        <i data-lucide="compass" class="w-6 h-6 text-[#6b8c9e] mr-3"></i>
+                        <h3 class="text-xl font-bold text-tierra-900 uppercase">Oportunidades <span class="text-sm text-tierra-500 ml-2 font-normal">/ Explotar</span></h3>
+                    </div>
+                    <div class="mb-6 space-y-3 text-tierra-800">
+                        <p>• Becas de estudio en caso de ser un curso por encima de un CS.</p>
+                        <p>• Desplazamiento por vehículo propio.</p>
+                        <p>• Buen expediente académico para poder optar por plazas más fácilmente.</p>
+                    </div>
+                    <div class="bg-[#fcfaf8] p-5 rounded-xl border border-tierra-100">
+                        <h4 class="font-bold text-tierra-800 mb-3 text-sm">CAME</h4>
+                        <ul class="space-y-2 text-tierra-700">
+                            <li>• Estar atento a convocatorias y plazos de las becas.</li>
+                            <li>• Usar el expediente académico para acceder a programas de alta demanda o con nota de corte. Incluirlo en solicitudes de prácticas, becas o primeros empleos.</li>
+                            <li>• Valorar movilidad para acceder a oportunidades en otras ciudades.</li>
+                            <li>• Calcular costes y beneficios de posibles desplazamientos.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 3: Resultados de Orientación (ACTUALIZADA) -->
+    <section id="orientacion" class="py-20 bg-white border-t border-tierra-100 border-b">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Anàlisi resultats del test</h2>
+                <div class="w-24 h-1 bg-tierra-300 rounded-full"></div>
+            </div>
+
+            <div class="space-y-10">
+                
+                <!-- PARTE ACTUALIZADA LITERALMENTE DEL ÚLTIMO PDF -->
+                <div>
+                    <div class="text-tierra-800 leading-relaxed bg-tierra-50 p-6 md:p-8 rounded-2xl border border-tierra-100 space-y-5 shadow-sm">
+                        <p>Hi ha moltes maneres de poder detectar la idea de "cap on vull anar". A banda de fer un treball introspectiu amb nosaltres mateixos, podem buscar per internet sortides professionals, sous, preguntar a la gent del nostre voltant... i també fer un test vocacional.</p>
+
+                        <h3 class="font-semibold text-xl text-tierra-900 border-b border-tierra-200 pb-2 mt-6">Escolliu un del llistat, feu-lo i comenteu els resultats: què ha sortit? esteu d'acord/no? perquè? Amb aquesta info farem la següent activitat</h3>
+
+                        <p>He realitzat 4 tests, encara que un després de 15 min em va acabar donant error jaja, cadascun m'ha donat una resposta diferent, cap m'ha apropat concretament a la meva professió. Aquests son els test que vaig realitzar amb éxit:</p>
+
+                        <div class="space-y-4 my-6 pl-4 md:pl-6 border-l-4 border-tierra-300">
+                            <div>
+                                <h4 class="font-bold text-tierra-900">Test Vocacional EDUCAWEB (Català i Castellà)</h4>
+                                <p class="text-sm mt-1">Prova gratuïta i detallada que ajuda a identificar la teva vocació professional, utilitzant una metodologia basada en els teus interessos, habilitats i valors. (EDUCAWEB - Test Vocacional)</p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-tierra-900">Test de Orientación Vocacional Truity (Espanyol)</h4>
+                                <p class="text-sm mt-1">Test gratuït que avalua la personalitat i els interessos professionals basats en l'enfocament de la psicologia dels interessos laborals. (Truity - Test Vocacional)</p>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold text-tierra-900">Test Vocacional de la PCE (Espanyol)</h4>
+                                <p class="text-sm mt-1">Test vocacional simple i gratuït que ofereix recomanacions professionals basades en els interessos personals. (Test Vocacional PCE)</p>
+                            </div>
+                        </div>
+
+                        <p>En un he rebut artístic, en el de EDUCAWEB, personalment el que he trobat més definit i personal i en altre arquitecte, el de la PCE, que em va semblar molt bàsic i amb preguntes molt inútils com si m'agraden els sudokus, els dos resultats han sigut maneres molt diferents de percebre la meva personalitat. En general estic d'acord en que m'agradaria treballar en un ofici que impliqui la creació d'alguna cosa de manera manual. En l'altre test em va donar molt de pes en 3 característiques: construcció, pensament i creació. I per exemple tot allò d'ajudar, de tractament amb persones, de logística amb programes o organització d'empreses etc no em crida l'atenció.</p>
+                    </div>
+                </div>
+
+                <!-- Continuación de las preguntas originales -->
+                <div>
+                    <h3 class="font-semibold text-lg text-tierra-900 mb-3">1. Posa en comú amb la teva família i amics, els resultats obtinguts pel test, per contrastar opinions i tenir més elements per decidir. Recull les seves aportacions.</h3>
+                    <p class="text-tierra-800 leading-relaxed bg-tierra-50 p-6 rounded-xl border border-tierra-100">
+                        Els meus pares hi estaven d'acord amb el raonament de que m'agraden els treballs físics, de realitzar una tasca manual i dinàmica, gaudir d'una característica artística també en aquell treball però que a la vegada també seria capaç de realitzar un treball que fos més "intelectual" o mental ja que sempre m'he defensat bé en aquest ambit en assignatures de càlcul o en general quan s'ha de ser més metòdica i de retenció d'informació o resolució de problemes.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="font-semibold text-lg text-tierra-900 mb-3">2. Integra tota aquesta informació i anota la teva opinió.</h3>
+                    <div class="text-tierra-800 leading-relaxed bg-tierra-50 p-6 rounded-xl border border-tierra-100 space-y-4">
+                        <p>Com a conclusió estaria oberta a provar diferents estils de treball perquè crec que podria adaptar-me a diferents tasques però que em criden molt més els treballs més dinàmics, manuals i amb una certa aportació artística o de creació.</p>
+                        <p>Al principi és cert que he dit que cap test m'ha apropat a la meva professió, al menys de manera directa, però després d'analitzar-ho amb major profunditat sí que trobo una relació alhora de que per a mi la cuina és un treball manual de creació i de llibertat artística també, la cuina és un mitjà artístic, d'expressió i d'estètica, al menys el tipus de cuina que a mi més em crida l'atenció.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 4: Gráfico de Valores -->
+    <section id="valores" class="py-20 bg-tierra-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Gráfico de Trabajo</h2>
+                <div class="w-24 h-1 bg-tierra-300 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="flex flex-col lg:flex-row items-center gap-12 bg-white p-8 rounded-3xl shadow-sm border border-tierra-100">
+                <!-- Contenedor del Gráfico -->
+                <div class="w-full lg:w-1/2 flex justify-center">
+                    <div class="w-full max-w-md aspect-square relative">
+                        <canvas id="valoresChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Explicación de los valores literal del PDF -->
+                <div class="w-full lg:w-1/2">
+                    <div class="grid grid-cols-1 gap-6">
+                        
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                SATISFACCIÓN <span class="text-xl font-black text-[#8B5A2B]">26.1%</span>
+                            </h4>
+                            <p class="text-tierra-700">Que al realizar ese trabajo me sienta realizada y conforme con lo que hago, que sea una actividadad que me llene y me genere ganas.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                SALARIO <span class="text-xl font-black text-[#D2B48C]">21.7%</span>
+                            </h4>
+                            <p class="text-tierra-700">El dinero para mi es importante pero no lo es todo, valoro otras cosas como el descanso mental y la satisfacción antes que el volumen salarial.. Con poder ganar un sueldo que me permita vivir bien prefiero ganar menos pero con mayor tranquilidad mental.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                AMBIENTE LABORAL <span class="text-xl font-black text-[#5C4033]">17.4%</span>
+                            </h4>
+                            <p class="text-tierra-700">Sentirme cómoda en el lugar de trabajo, donde haya comunicación, buenos tratos, motivación y risas.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                FLEXIBILIDAD HORARIA <span class="text-xl font-black text-[#CD853F]">13%</span>
+                            </h4>
+                            <p class="text-tierra-700">Que aún teniendo un horario "semifijo" este pueda variar según conveniencia, fiestas variables, elección de turnos.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                DESCANSO MENTAL <span class="text-xl font-black text-[#DEB887]">13%</span>
+                            </h4>
+                            <p class="text-tierra-700">Poder no llevarme el trabajo conmigo a casa. Separar el descanso del trabajo.</p>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-tierra-900 text-lg uppercase flex items-center justify-between border-b border-tierra-200 pb-2 mb-2">
+                                HORARIO <span class="text-xl font-black text-[#E6C2A1]">8.7%</span>
+                            </h4>
+                            <p class="text-tierra-700">Un horario que sea compatible conmigo, no es mucho % porque siento que me puedo adaptar a diferentes horarios.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 5: Com em veuen els altres? -->
+    <section id="entorno" class="py-20 bg-white border-t border-tierra-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Com em veuen els altres?</h2>
+                <div class="w-24 h-1 bg-tierra-300 mx-auto rounded-full mt-6"></div>
+            </div>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse min-w-[800px]">
+                    <thead>
+                        <tr class="bg-tierra-100 text-tierra-900 text-sm">
+                            <th class="p-4 border border-tierra-200 font-bold w-1/5">NOM I ROL DE LA PERSONA ENTREVISTADA</th>
+                            <th class="p-4 border border-tierra-200 font-bold w-1/5">Capacitat (allò que pots arribar a fer (el teu potencial))</th>
+                            <th class="p-4 border border-tierra-200 font-bold w-1/5">Aptituds (allò que saps fer bé)</th>
+                            <th class="p-4 border border-tierra-200 font-bold w-1/5">Actituds (com ho fas (les ganes, la motivació, la manera d'afrontar-ho))</th>
+                            <th class="p-4 border border-tierra-200 font-bold w-1/5">Què tinc facilitat per fer (el que et surt fàcil i gairebé sense esforç.)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-sm text-tierra-800 bg-white">
+                        <tr class="hover:bg-tierra-50">
+                            <td class="p-4 border border-tierra-200 font-semibold">Madre: Esther</td>
+                            <td class="p-4 border border-tierra-200">Lo que se plantee, cosas artísticas</td>
+                            <td class="p-4 border border-tierra-200">La cocina, manualidades</td>
+                            <td class="p-4 border border-tierra-200">Relativas</td>
+                            <td class="p-4 border border-tierra-200">Cocinar, pintar, responsabilidad, puntualidad, saber estar</td>
+                        </tr>
+                        <tr class="hover:bg-tierra-50">
+                            <td class="p-4 border border-tierra-200 font-semibold">Padre: Javier</td>
+                            <td class="p-4 border border-tierra-200">Cosas manuales buena cabeza</td>
+                            <td class="p-4 border border-tierra-200">Escuchar</td>
+                            <td class="p-4 border border-tierra-200">Según la actividad</td>
+                            <td class="p-4 border border-tierra-200">Hacer sus obligaciones, responsabilidad</td>
+                        </tr>
+                        <tr class="hover:bg-tierra-50">
+                            <td class="p-4 border border-tierra-200 font-semibold">Pareja: Marc</td>
+                            <td class="p-4 border border-tierra-200">Amb esforç, qualssevol cosa, sobretot si es de caire artesà</td>
+                            <td class="p-4 border border-tierra-200">Treballs manuals, artesanals, ser curiosa</td>
+                            <td class="p-4 border border-tierra-200">Afronta amb desició i ganes allò que es proposa</td>
+                            <td class="p-4 border border-tierra-200">La cuina, l'art, depèn com les activitats físiques, madrugar</td>
+                        </tr>
+                        <tr class="hover:bg-tierra-50">
+                            <td class="p-4 border border-tierra-200 font-semibold">Amistad: Silvia</td>
+                            <td class="p-4 border border-tierra-200">Todo, arribarà lluny</td>
+                            <td class="p-4 border border-tierra-200">Se escoltar, gestionar moments, ajudar</td>
+                            <td class="p-4 border border-tierra-200">Té ganes d'aprendre i es nota</td>
+                            <td class="p-4 border border-tierra-200">Aprenc ràpid, reflexiono molt</td>
+                        </tr>
+                        <tr class="hover:bg-tierra-50">
+                            <td class="p-4 border border-tierra-200 font-semibold">Abuela: Carmen</td>
+                            <td class="p-4 border border-tierra-200">A donde quiera, por la pintura, por la cocina, y que tengo muy buen corazón</td>
+                            <td class="p-4 border border-tierra-200">El arte, la cocina, conquistar a la gente</td>
+                            <td class="p-4 border border-tierra-200">Buena actitud, todo lo que se propone lo consigue, porque es determinada/ terca/ persistente</td>
+                            <td class="p-4 border border-tierra-200">Lo mejor que lleva es que no quiere quedarse atrás, en no procrastinar sus responsabilidades y querer sacar buenas notas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Caja de Opinión -->
+            <div class="mt-8 bg-tierra-100 p-6 rounded-2xl border-l-4 border-tierra-600">
+                <h4 class="font-bold text-tierra-900 text-lg mb-2">Opinión:</h4>
+                <p class="text-tierra-800 leading-relaxed">
+                    Por lo general se han basado mucho en las dos ramas por las que he tirado a la hora de desarrollarme y estudiar como es el arte y la cocina. En cuanto a cosas más de aptitudes me ha sorprendido que me ven como una persona determinada y que consigo con esmero lo que me propongo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección 6: Reflexió ON ESTIC -->
+    <section id="reflexion" class="py-20 bg-tierra-50 border-t border-tierra-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-serif text-tierra-800 mb-4">Reflexió ON ESTIC</h2>
+                <div class="w-24 h-1 bg-tierra-300 rounded-full"></div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-tierra-200 space-y-6 text-tierra-800 leading-relaxed">
+                <p>
+                    Descobert com a tal no sabria dir que he pogut descobrir, a l'hora de realitzar el DAFO personal sí que és veritat que m'ha fet reflexionar sobre mi mateixa i donar-li voltes sobre quines qualitats o característiques tinc. El fet d'haver de pensar a quines "amenaces" m'he d'enfrontar o les debilitats que tinc en les que he de treballar. Sempre he pensat que era molt difícil definir-me, les persones en general, tenim tothom molts matisos i som persones canviants. Tot i així característiques com la por que tinc al canvi i a prendre grans decisions o de no estar a l'altura, al fracàs m'ha resultat interessant i revelador. Mitjançant els tests també he de dir que he pogut experimentar amb més claredat quins tipus de treball o accions em criden més l'atenció, com per exemple l'interès en els treballs que són més manuals i mecànics amb accions o relacions artístiques o per adonar-me'n de si el meu caràcter es decanta més per un tipus de personalitat o un altre.
+                </p>
+                <p>
+                    Considero que puc destacar en certes qualitats com poden ser una dedicació i responsabilitat en allò que em proposo o involucra a una altra persona, sobretot a un superior, una alta exigència en mi mateixa i en el meu rendiment, bona puntualitat, educació, facilitats acadèmiques i dedicació en els estudis així com certa habilitat i interès en l'ofici en el qual exerceixo.
+                </p>
+                <p>
+                    A causa d'aquesta sèrie d'exercicis m'he plantejat una mica més el valor de certs punts a tenir en compte d'un treball, en el meu cas encara que m'agrada molt l'ofici i la dinàmica que hi ha a la cuina, la pràctica, la teòrica, el món en general, sobre tot ambientat en una branca més artística i innovadora. Tot i això considero que em resta bastant la baixa compatibilitat horària amb altres sectors. El fet que quan jo treballo les altres persones tenen festa i viceversa no m'entusiasma gaire, al principi em donava més igual, les hores de més, els horaris partits. Però això a la llarga i pensant-ho més com a ofici de futur amb el qual he de compaginar juntament amb una parella i el fet de voler tenir temps lliure que poder compartir, cosa que per mi és molt important, xoca molt.
+                </p>
+                <p>
+                    Em pot ajudar a buscar o centrar-me a analitzar cóm sóc, com treballar allò més negatiu sobre mi i en buscar un fil conductor per veure quines altres opcions hi ha o les condicions dintre del sector, analitzar com és de compatible el treball de cuiner amb per exemple el meu "quesito" de treball. Buscar cóm és d'usual trobar un treball com l'AQ amb caps de setmana lliures, o la freqüència d'horaris partits, el sou, les característiques i la disponibilitat de treballs amb una cuina més artística/moderna/d'autor, etc.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-tierra-900 text-tierra-200 py-8 border-t border-tierra-800">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <span class="font-serif font-bold text-2xl tracking-tight text-white mb-4 block">AMB.</span>
+            <p class="text-sm">Proyecto de clase desarrollado por Andrea Mora Blas (CS DC1 2025-2026).</p>
+            <p class="text-xs mt-2 text-tierra-400">Diseño web creado a partir de documentos de evaluación personal.</p>
+        </div>
+    </footer>
+
+    <!-- Script para inicializar Iconos y Gráfico -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        // Datos para el gráfico de quesito
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('valoresChart').getContext('2d');
+            
+            // Paleta de colores terrosos para el gráfico
+            const coloresTerrosos = [
+                '#8B5A2B', // Satisfacción
+                '#D2B48C', // Salario
+                '#5C4033', // Ambiente
+                '#CD853F', // Flexibilidad
+                '#DEB887', // Descanso
+                '#E6C2A1', // Horario
+            ];
+
+            const valoresChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Satisfacción', 'Salario', 'Ambiente de trabajo', 'Flexibilidad horaria', 'Descanso mental', 'Horario'],
+                    datasets: [{
+                        data: [26.1, 21.7, 17.4, 13.0, 13.0, 8.7],
+                        backgroundColor: coloresTerrosos,
+                        borderColor: '#ffffff',
+                        borderWidth: 2,
+                        hoverOffset: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    family: "'Inter', sans-serif",
+                                    size: 13
+                                },
+                                color: '#5c4135'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: '#fff',
+                            titleColor: '#5c4135',
+                            bodyColor: '#5c4135',
+                            borderColor: '#e8dcd0',
+                            borderWidth: 1,
+                            padding: 12,
+                            boxPadding: 6,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
